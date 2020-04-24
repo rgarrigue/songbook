@@ -14,11 +14,13 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+          profile: minimal
 
       - name: Install mdbook and epub plugin
         uses: actions-rs/cargo@v1
         with:
-          command: install mdbook mdbook-epub
+          command: install 
+          args: mdbook mdbook-epub
 
       - name: Checkout
         uses: actions/checkout@v2
