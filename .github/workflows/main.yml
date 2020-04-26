@@ -10,18 +10,12 @@ jobs:
     name: Build and upload
     runs-on: ubuntu-latest
     steps:
-      # Install mdbook and requirements
+      # Install Rust & its package manager Cargo
       - name: Install cargo
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
           profile: minimal
-
-      - name: Install mdbook and epub plugin
-        uses: actions-rs/cargo@v1
-        with:
-          command: install 
-          args: mdbook mdbook-epub
 
       # Cache installation assets
       - name: Cache cargo registry
@@ -39,6 +33,13 @@ jobs:
         with:
           path: target
           key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
+
+      # Install mdbook and requirements
+      - name: Install mdbook and epub plugin
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: mdbook mdbook-epub
 
       # Ebook generation
       - name: Checkout
@@ -72,10 +73,11 @@ jobs:
           asset_path: ./book/epub/Songbook.epub
           asset_name: songbook.epub
           asset_content_type: application/epub+zip
-      
+
       # HTML publication as Github Page
       - name: Publish HTML
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./book/html
+          publich_branch: ${{ github.ref }}
