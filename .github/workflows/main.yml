@@ -76,6 +76,6 @@ jobs:
       # HTML publication as Github Page
       - name: Publish HTML
         uses: peaceiris/actions-gh-pages@v3
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./book/html
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book/html
