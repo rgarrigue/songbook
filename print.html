@@ -4,15 +4,16 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Songbook</title>
-        
         <meta name="robots" content="noindex" />
-        
 
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
@@ -21,8 +22,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -30,19 +30,17 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -58,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -70,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -91,8 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -102,17 +99,15 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">Songbook</h1>
@@ -121,14 +116,13 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
+
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -136,10 +130,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -149,8 +142,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#blind-guardian" id="blind-guardian">Blind Guardian</a></h1>
-<h2><a class="header" href="#the-bards-song" id="the-bards-song">The Bard's Song</a></h2>
+                        <h1 id="blind-guardian"><a class="header" href="#blind-guardian">Blind Guardian</a></h1>
+<h2 id="the-bards-song"><a class="header" href="#the-bards-song">The Bard's Song</a></h2>
 <p>Now you all know<br />
 The bards and their songs<br />
 When hours have gone by<br />
@@ -191,8 +184,8 @@ These songs of hobbits, dwarves and men<br />
 And elves<br />
 Come close your eyes<br />
 You can see them too  </p>
-<h1><a class="header" href="#cat-stevens" id="cat-stevens">Cat Stevens</a></h1>
-<h2><a class="header" href="#sad-lisa" id="sad-lisa">Sad Lisa</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cat-stevens"><a class="header" href="#cat-stevens">Cat Stevens</a></h1>
+<h2 id="sad-lisa"><a class="header" href="#sad-lisa">Sad Lisa</a></h2>
 <p>She hangs her head and cries in my shirt<br />
 She must be hurt very badly<br />
 Tell me what's making you sadly?<br />
@@ -214,8 +207,8 @@ I'll do what I can to show her the way<br />
 And maybe one day I will free her<br />
 Though I know no one can see her</p>
 <p>Lisa Lisa, sad Lisa Lisa</p>
-<h1><a class="header" href="#george-moustaki" id="george-moustaki">George Moustaki</a></h1>
-<h2><a class="header" href="#ma-solitude" id="ma-solitude">Ma Solitude</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="george-moustaki"><a class="header" href="#george-moustaki">George Moustaki</a></h1>
+<h2 id="ma-solitude"><a class="header" href="#ma-solitude">Ma Solitude</a></h2>
 <p>Pour avoir si souvent dormi<br />
 Avec ma solitude<br />
 Je m'en suis fait presqu'une amie<br />
@@ -248,7 +241,7 @@ Ma dernière compagne</p>
 Avec ma solitude<br />
 Non, je ne suis jamais seul<br />
 Avec ma solitude</p>
-<h2><a class="header" href="#le-métèque" id="le-métèque">Le Métèque</a></h2>
+<h2 id="le-métèque"><a class="header" href="#le-métèque">Le Métèque</a></h2>
 <p>Avec ma gueule de métèque<br />
 De Juif errant, de pâtre grec<br />
 Et mes cheveux aux quatre vents<br />
@@ -288,8 +281,8 @@ Que nous vivrons à en mourir</p>
 <p>Et nous ferons de chaque jour<br />
 Toute une éternité d'amour<br />
 Que nous vivrons à en mourir</p>
-<h1><a class="header" href="#metallica" id="metallica">Metallica</a></h1>
-<h2><a class="header" href="#nothing-else-matters" id="nothing-else-matters">Nothing Else Matters</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="metallica"><a class="header" href="#metallica">Metallica</a></h1>
+<h2 id="nothing-else-matters"><a class="header" href="#nothing-else-matters">Nothing Else Matters</a></h2>
 <p>So close no matter how far<br />
 Couldn't be much more from the heart<br />
 Forever trusting who we are<br />
@@ -329,8 +322,8 @@ And I know</p>
 Couldn't be much more from the heart<br />
 Forever trusting who we are<br />
 No, nothing else matters</p>
-<h1><a class="header" href="#renaud" id="renaud">Renaud</a></h1>
-<h2><a class="header" href="#la-balade-nord-irlandaise" id="la-balade-nord-irlandaise">La balade Nord Irlandaise</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="renaud"><a class="header" href="#renaud">Renaud</a></h1>
+<h2 id="la-balade-nord-irlandaise"><a class="header" href="#la-balade-nord-irlandaise">La balade Nord Irlandaise</a></h2>
 <p>J'ai voulu planter un oranger<br />
 Là où la chanson n'en verra jamais<br />
 Là où les arbres n'ont jamais donné<br />
@@ -351,7 +344,7 @@ Qui font pousser les orangers</p>
 Là où la chanson n'en verra jamais<br />
 Il a fleuri et il a donné<br />
 Les fruits sucrés de la liberté</p>
-<h2><a class="header" href="#mistral-gagnant" id="mistral-gagnant">Mistral Gagnant</a></h2>
+<h2 id="mistral-gagnant"><a class="header" href="#mistral-gagnant">Mistral Gagnant</a></h2>
 <p>Ah, m'asseoir sur un banc<br />
 Cinq minutes avec toi<br />
 Et regarder les gens<br />
@@ -422,8 +415,8 @@ Et emporte avec lui<br />
 Les rires des enfants<br />
 Et les mistrals gagnants</p>
 <p>Et les mistrals gagnants</p>
-<h1><a class="header" href="#ridan" id="ridan">Ridan</a></h1>
-<h2><a class="header" href="#lagriculteur" id="lagriculteur">L'agriculteur</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ridan"><a class="header" href="#ridan">Ridan</a></h1>
+<h2 id="lagriculteur"><a class="header" href="#lagriculteur">L'agriculteur</a></h2>
 <p>J'allume mon poste de télé<br />
 Pour admirer ce qu'il s'y passe<br />
 Un milliardaire s'envoie en l'air<br />
@@ -508,7 +501,7 @@ Et si le blé m'file du bonheur<br />
 Je me ferai peut-être agriculteur<br />
 Et si le blé m'file du bonheur<br />
 Je me ferai peut-être agriculteur</p>
-<h1><a class="header" href="#ridan---ulysse" id="ridan---ulysse">Ridan - Ulysse</a></h1>
+<h1 id="ridan---ulysse"><a class="header" href="#ridan---ulysse">Ridan - Ulysse</a></h1>
 <p>Heureux qui, comme Ulysse, a fait un beau voyage,<br />
 Ou comme cestuy-là qui conquit la toison,<br />
 Et puis est retourné, plein d'usage et raison,<br />
@@ -546,8 +539,8 @@ Mais quand reverrai-je ?</p>
 <p>Mais quand reverrai-je ?<br />
 Mais quand reverrai-je ?<br />
 Mais quand reverrai-je ?</p>
-<h1><a class="header" href="#simon--garfunkel" id="simon--garfunkel">Simon &amp; Garfunkel</a></h1>
-<h2><a class="header" href="#the-sound-of-silence" id="the-sound-of-silence">The Sound Of Silence</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="simon--garfunkel"><a class="header" href="#simon--garfunkel">Simon &amp; Garfunkel</a></h1>
+<h2 id="the-sound-of-silence"><a class="header" href="#the-sound-of-silence">The Sound Of Silence</a></h2>
 <p>Hello darkness, my old friend<br />
 I've come to talk with you again<br />
 Because a vision softly creeping<br />
@@ -582,7 +575,7 @@ In the words that it was forming<br />
 And the sign said, &quot;The words of the prophets are written on the subway walls<br />
 And tenement halls&quot;<br />
 And whispered in the sounds of silence</p>
-<h2><a class="header" href="#scarborough-fair" id="scarborough-fair">Scarborough Fair</a></h2>
+<h2 id="scarborough-fair"><a class="header" href="#scarborough-fair">Scarborough Fair</a></h2>
 <p>Are you going to Scarborough Fair?<br />
 Parsley, sage, rosemary, and thyme<br />
 Remember me to one who lives there<br />
@@ -643,8 +636,8 @@ Then she'll be a true love of mine</p>
 Parsley, sage, rosemary, and thyme<br />
 Remember me to one who lives there<br />
 She once was a true love of mine</p>
-<h1><a class="header" href="#the-rolling-stones" id="the-rolling-stones">The Rolling Stones</a></h1>
-<h2><a class="header" href="#paint-it-black" id="paint-it-black">Paint it black</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-rolling-stones"><a class="header" href="#the-rolling-stones">The Rolling Stones</a></h1>
+<h2 id="paint-it-black"><a class="header" href="#paint-it-black">Paint it black</a></h2>
 <p>I see a red door and I want it painted black<br />
 No colours anymore, I want them to turn black<br />
 I see the girls walk by dressed in their summer clothes<br />
@@ -676,9 +669,7 @@ I wanna see it painted, painted, painted, painted  black, yeah</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
 
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -686,49 +677,34 @@ I wanna see it painted, painted, painted, painted  black, yeah</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
 
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
-        
-        
-        <script type="text/javascript">
-            window.playpen_copyable = true;
+
+        <script>
+            window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
-        
-        <script type="text/javascript">
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-        
-        
 
     </body>
 </html>
